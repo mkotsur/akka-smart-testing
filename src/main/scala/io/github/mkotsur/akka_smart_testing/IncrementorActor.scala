@@ -15,6 +15,9 @@ class IncrementorActor extends Actor {
 
   override def receive: Receive = {
     case Inc(i) =>
+      if (i < 0) {
+        throw new IllegalArgumentException("We are incrementing, not decrementing...")
+      }
       sum = sum + i
   }
 

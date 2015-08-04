@@ -18,15 +18,22 @@ Greatly inspired by [Akka in Action](http://www.manning.com/roestenburg/) book a
 
 ### Sync unit-testing
 
-Works with `CallingThreadDispatcher`.
+* Works with `CallingThreadDispatcher`;
+* Supports either message-sending style, or direct invocations.
+
 
 ### Async unit-testing
 
 There are several patterns:
 
 * Silent actor,
-* Sending actor,
+* Sending actor:
+    ** Forwarding actor,
+    ** Filtering actor;
+    ** Sequencing actor.
 * Side-effecting actor.
+
+
 
 
 ## Timeouts

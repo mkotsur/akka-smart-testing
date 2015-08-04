@@ -25,6 +25,14 @@ class IncrementorActorTest extends TestKit(ActorSystem("test-system")) with FunS
       actorRef.underlyingActor.sum shouldEqual 5
     }
 
+    it("should throw an exception when negative value is passed") {
+      val actorRef = TestActorRef[IncrementorActor]
+
+      intercept[IllegalArgumentException] {
+        actorRef.receive(Inc(-1))
+      }
+    }
+
   }
 
 }
