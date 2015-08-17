@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>reveal.js - Embedded Media</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="./bower_components/reveal-js/css/reveal.css">
+    <link rel="stylesheet" href="./bower_components/reveal-js/css/theme/moon.css" id="theme">
+    <link rel="stylesheet" href="./bower_components/reveal-js/lib/css/zenburn.css">
+    <style>
+    </style>
+</head>
+
+<body>
+
+<div class="reveal">
+    <div class="slides">
+
+        <section>
+            <h2>Blood, sweat and tears</h2>
+        </section>
+        <section>
+            <h2 style="color: #586e75">Blood, sweat and tears</h2>
+            <h3>... or Smart testing of your Akka code</h3>
+        </section>
+        <section data-markdown="script.md"
+                 data-separator="^---"
+                 data-separator-notes="^Note:"
+                 data-charset="iso-8859-15">
+        </section>
+
+    </div>
+
+
+</div>
+
+<script src="./bower_components/reveal-js/lib/js/head.min.js"></script>
+<script src="./bower_components/reveal-js/js/reveal.js"></script>
+
+<script>
+
+    Reveal.initialize({
+        transition: 'linear',
+        width: 1300,
+        progress: true,
+        history: true,
+        keyboard: true,
+        controls: false,
+        dependencies: [
+            { src: './bower_components/reveal-js/plugin/markdown/marked.js'},
+            { src: './bower_components/reveal-js/plugin/markdown/markdown.js'},
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+
+        ]
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,11 +1,13 @@
 package io.github.mkotsur.akka_smart_testing
 
-import akka.actor.ActorSystem
-import akka.testkit.{TestKit, TestActorRef}
+import akka.testkit.TestActorRef
 import io.github.mkotsur.akka_smart_testing.IncrementorActorMessages.Inc
-import org.scalatest.{FunSpecLike, Matchers, FunSpec, FunSuite}
+import io.github.mkotsur.akka_smart_testing.util.AkkaTestBase
+import org.scalatest.Matchers._
+import org.scalatest._
 
-class IncrementorActorTest extends TestKit(ActorSystem("test-system")) with FunSpecLike with Matchers {
+class IncrementorActorTest extends AkkaTestBase {
+
 
   describe("Incrementor actor") {
 
