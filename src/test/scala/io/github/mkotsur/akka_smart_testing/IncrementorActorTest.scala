@@ -1,13 +1,17 @@
 package io.github.mkotsur.akka_smart_testing
 
 import akka.testkit.TestActorRef
+import akka.util.Timeout
 import io.github.mkotsur.akka_smart_testing.IncrementorActorMessages.Inc
 import io.github.mkotsur.akka_smart_testing.util.AkkaTestBase
 import org.scalatest.Matchers._
-import org.scalatest._
+import scala.concurrent.duration._
+
+import scala.language.postfixOps
 
 class IncrementorActorTest extends AkkaTestBase {
 
+  implicit val timeout: Timeout = 1 second
 
   describe("Incrementor actor") {
 

@@ -102,7 +102,8 @@ Test kit provides some helpers:
     
     ImplicitSender // Places test actor in scope of the test
      
-    TestProbe() // When you need more of those
+    val probe = TestProbe() // When you need more of those
+    probe.ref // contains ActorRef
 
 ---
 
@@ -208,8 +209,45 @@ Described [here](http://doc.akka.io/docs/akka/snapshot/scala/extending-akka.html
 
 ---
 
-## Fault tolerance testing
+### Settings extension
 
+    class Settings(var config: Config, extendedSystem: ExtendedActorSystem) extends Extension {
+    
+      object Http {
+        val Port = config.getInt("app.http.port")
+        val Host = config.getString("app.http.host")
+      }
+      
+    }
+    
+    object Settings extends ExtensionId[Settings] with ExtensionIdProvider {
+      override def lookup() = Settings
+    
+      override def createExtension(system: ExtendedActorSystem) = new Settings(system.settings.config, system)
+    
+    }
+
+---
+
+### Using settings
+
+    class MyActor extends Actor {
+      val settings = Settings(context.system)
+      val connection = bind(settings.Http.Port, settings.Http.Hosts)
+
+---
+
+### Changing settings for tests
+    
+      def prependWith(newConfig: Config): Settings = {
+        config = newConfig.withFallback(config)
+        this
+      }
+    
+      def appendWith(newConfig: Config): Settings = {
+        config = config.withFallback(newConfig)
+        this
+      }
 
 ---
 
