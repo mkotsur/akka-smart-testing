@@ -3,7 +3,9 @@ package io.github.mkotsur.akka_smart_testing
 import akka.actor.Actor
 import io.github.mkotsur.akka_smart_testing.IncrementorActorMessages.{Result, Inc}
 
-object IncrementorActorMessages {
+import scala.concurrent.Future
+
+object SmartIncrementorActorMessages {
 
   case class Inc(i: Int)
 
@@ -11,19 +13,17 @@ object IncrementorActorMessages {
 
 }
 
-class IncrementorActor extends Actor {
+class SmartIncrementorActor extends Actor {
 
   var sum: Int = 0
 
   override def receive: Receive = {
     case Inc(i) =>
-      if (i < 0) {
-        throw new IllegalArgumentException("We are incrementing, not decrementing...")
+      import scala.concurrent.ExecutionContext.Implicits.global
+      Future {
+        Thread.sleep(100)
+        sum = sum + i
       }
-      sum = sum + i
-
-    case Result =>
-      sender() ! sum
   }
 
 }

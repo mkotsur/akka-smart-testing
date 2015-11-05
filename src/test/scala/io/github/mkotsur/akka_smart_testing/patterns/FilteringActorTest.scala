@@ -28,14 +28,10 @@ class FilteringActorTest extends AkkaTestBase with Matchers {
     filteringActor ! Id(4)
     filteringActor ! Id(8)
 
-    filteringActor ! PoisonPill
 
-//    val msgs = probe.receiveN(6).map(_.).toList
+    val msgs = probe.receiveN(6).map(_.asInstanceOf[Id].id).toList
 
-//    msgs shouldBe List(1, 2, 3, 5, 4, 8)
-
-    probe.expectTerminated(filteringActor)
-
+    msgs shouldBe List(1, 2, 3, 5, 4, 8)
   }
 
 }

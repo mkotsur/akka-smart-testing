@@ -1,0 +1,29 @@
+#whereami {
+
+  height: 100px;
+  text-align: left;
+  color: #1b91ff;
+}
+
+.reveal h2 {
+  margin-bottom: 80px;
+}
+
+.reveal section img {
+  border: 1px solid #444444;
+}
+
+.reveal pre code {
+  font-size: 2em;
+  line-height: 40px;
+  overflow: visible;
+  max-height: none;
+}
+
+.ta-left {
+  text-align: left;
+}
+
+.reveal h1 {
+  line-height: 1.2em;
+}

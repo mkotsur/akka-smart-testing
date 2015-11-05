@@ -1,13 +1,15 @@
 package io.github.mkotsur.akka_smart_testing.patterns
 
 import akka.actor.{ActorLogging, Actor}
-import io.github.mkotsur.akka_smart_testing.patterns.SilentActorMessages.{GetState, ChangeState, DoSideEffect}
+import io.github.mkotsur.akka_smart_testing.patterns.SilentActorMessages.{DoSideEffectWithException, GetState, ChangeState, DoSideEffect}
 
 object SilentActorMessages {
 
   case class ChangeState(state: String)
 
   object DoSideEffect
+
+  object DoSideEffectWithException
 
   object GetState
 
@@ -28,7 +30,10 @@ class SilentActor extends Actor with ActorLogging {
     case DoSideEffect =>
       val msg = "side effect"
       log.info(msg)
-      println(msg)
+
+    case DoSideEffectWithException =>
+      val msg = "This side effect causes an exception"
+      log.error(new RuntimeException(msg), msg)
   }
 
 }

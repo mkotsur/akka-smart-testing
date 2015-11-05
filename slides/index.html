@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./bower_components/reveal-js/css/reveal.css">
     <link rel="stylesheet" href="./bower_components/reveal-js/css/theme/night.css" id="theme">
     <link rel="stylesheet" href="./bower_components/reveal-js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="./css/main.css">
     <style>
     </style>
 </head>
@@ -20,9 +21,6 @@
 <div class="reveal">
     <div class="slides">
 
-        <section>
-            <h2>Blood, sweat and tears</h2>
-        </section>
         <section>
             <h2 style="color: #586e75">Blood, sweat and tears</h2>
             <h3>... or Smart testing of your Akka code</h3>
@@ -53,7 +51,7 @@
         dependencies: [
             { src: './bower_components/reveal-js/plugin/markdown/marked.js'},
             { src: './bower_components/reveal-js/plugin/markdown/markdown.js'},
-            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: './bower_components/reveal-js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 
         ]
     });
