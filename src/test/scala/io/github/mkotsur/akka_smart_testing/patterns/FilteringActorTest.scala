@@ -15,6 +15,8 @@ class FilteringActorTest extends AkkaTestBase with Matchers {
 
     val probe = TestProbe()
 
+    Props()
+
 
     val filteringActor = system.actorOf(Props(new FilteringActor(probe.ref)))
 

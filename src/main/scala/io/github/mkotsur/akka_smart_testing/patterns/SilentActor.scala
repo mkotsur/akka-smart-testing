@@ -1,6 +1,6 @@
 package io.github.mkotsur.akka_smart_testing.patterns
 
-import akka.actor.{ActorLogging, Actor}
+import akka.actor.{SupervisorStrategy, OneForOneStrategy, ActorLogging, Actor}
 import io.github.mkotsur.akka_smart_testing.patterns.SilentActorMessages.{DoSideEffectWithException, GetState, ChangeState, DoSideEffect}
 
 object SilentActorMessages {
